@@ -3,8 +3,8 @@ const bot = require('../../bot');
 
 const sessions = new Map();
 
-function get(key) {
-  return sessions.get(key) ?? create(key);
+async function get(key) {
+  return sessions.get(key) ?? await create(key);
 }
 
 async function create(key) {

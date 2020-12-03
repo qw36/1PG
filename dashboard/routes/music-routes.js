@@ -22,4 +22,73 @@ router.get('/stop', async (req, res) => {
   }
 });
 
+router.get('/toggle', async (req, res) => {
+  try {
+    (res.locals.player.isPaused)
+      ? await res.locals.player.resume()
+      : await res.locals.player.pause();
+
+    res.json({ code: 200, message: 'Success!' });
+  } catch (error) {
+    sendError(res, error);
+  }
+});
+
+router.get('/list', async (req, res) => {
+  try {
+    res.json(res.locals.player.q.items);
+  } catch (error) {
+    sendError(res, error);
+  }
+});
+
+router.get('/skip', async (req, res) => {
+  try {
+    await res.locals.player.skip();
+
+    res.json({ code: 200, message: 'Success!' });
+  } catch (error) {
+    sendError(res, error);
+  }
+});
+
+router.get('/volume', async (req, res) => {
+  try {
+    await res.locals.player.setVolume(req.query.volume);
+
+    res.json({ code: 200, message: 'Success!' });
+  } catch (error) {
+    sendError(res, error);
+  }
+});
+
+router.get('/seek', async (req, res) => {
+  try {
+    await res.locals.player.seek(req.query.to);
+
+    res.json({ code: 200, message: 'Success!' });
+  } catch (error) {
+    sendError(res, error);
+  }
+});
+
+router.get('/shuffle', async (req, res) => {
+  try {
+    await res.locals.player.q.shuffle();
+
+    res.json(res.locals.player.q.items);
+  } catch (error) {
+    sendError(res, error);
+  }
+});
+
+router.get('/remove', async (req, res) => {
+  try {
+    res.locals.player.q.items.splice(req.query.index, 1);
+    res.json({ code: 200, message: 'Success!' });
+  } catch (error) {
+    sendError(res, error);
+  }
+});
+
 module.exports = router;
