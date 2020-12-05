@@ -7,7 +7,7 @@ section#musicModule.module.container.px-5
     .card-header.bg-transparent.row
       .col
         h5 Player
-        .media
+        .media.now-playing
           - const track = player.q.length > 0 ? player.q.items[0] : null;
           if track
             img.float-left.mr-2(src=track.thumbnail)
@@ -22,13 +22,15 @@ section#musicModule.module.container.px-5
             button#stopTrack.btn.text-gradient #[i.fas.fa-square]
             button#skipTrack.btn.text-gradient #[i.fas.fa-forward]
             button#shuffleList.btn.text-gradient #[i.fas.fa-random]
-          .col-3.volume
+          .col-3#volume
             i.fas.fa-volume-up.text-gradient
             input.form-control(type='range')
-        div
+        #seekTrack
           input.form-control(type='range')
           .position
-            span.current 00:00 #[span.text-muted /] #[span.duration.text-muted 00:00]
+            span.current 00:00
+            span.text-muted.px-1 /
+            span.duration.text-muted 00:00
         
     .card-body
       h5 Queue
