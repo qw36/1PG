@@ -1,6 +1,7 @@
 .card-header img {
   width: 128px;
-  height: auto;
+  height: 128px;
+  object-fit: cover;
   border-radius: 15px;
 }
 
@@ -35,8 +36,19 @@ input:focus {
   opacity: 1;
 }
 
+#trackSearch {
+  margin-top: 20px;
+  max-height: 42px;
+}
+
 .track-list img {
   width: 64px;
-  height: auto;
+  height: 64px;
+  object-fit: cover;
   border-radius: 10px;
+}
+
+.form-control, .btn {
+  box-shadow: none !important;
+  outline: none !important;
 }
