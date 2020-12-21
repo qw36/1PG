@@ -1,8 +1,4 @@
-# 1PG
-1PG Course - https://udemy.com/course/create-the-best-discord-bot/?referralCode=5CB95A4D9309B1F54560
-
-Create a Discord Bot Dashboard Series - https://www.youtube.com/watch?v=tpIQM90o_pY&list=PLGfT2ttRbfizUIO1YEITWaquqBsNqHv7v&index=1
-
+# ixstorm share
 ## Setup
 
 Make a file `config.json`:
